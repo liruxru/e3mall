@@ -15,6 +15,12 @@
     <artifactId>e3-common</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     </dependency>
+    
+    	<!-- 日志处理 -->
+			<dependency>
+				<groupId>ch.qos.logback</groupId>
+				<artifactId>logback-classic</artifactId>
+			</dependency>
   
   </dependencies>
   <modules>
@@ -22,7 +28,6 @@
   	<module>e3-manager-dao</module>
   	<module>e3-manager-interface</module>
   	<module>e3-manager-service</module>
-  	<module>e3-manager-web</module>
   </modules>
   
   
@@ -37,6 +42,7 @@
 						<port>8080</port>
 					</configuration>
 				</plugin>
+				
 
 			</plugins>
   </build>

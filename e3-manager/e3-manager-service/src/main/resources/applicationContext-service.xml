@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
+	 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       
+    
+    
+     <!-- provider's application name, used for tracing dependency relationship -->
+    <dubbo:application name="e3mall-manager-service"/>
+    <!-- 使用zookeeper的注册中心   单机版 -->
+    <dubbo:registry  protocol="zookeeper"   address="192.168.91.132:2181"/>
+    <!-- use dubbo protocol to export service on port 20880  -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+    
+    <!-- service implementation, as same as regular local bean -->
+    <bean id="itemService" class="com.bonc.service.impl.ItemServiceImpl"/>
+    <!-- declare the service interface to be exported  tomeout 单位ms -->
+    <dubbo:service interface="com.bonc.service.ItemService" ref="itemService"  timeout="600000"/>
+    
+</beans>

@@ -1,10 +1,11 @@
 package com.bonc.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
 @Data
-public class Item {
+public class Item implements Serializable {
     private Long id;
 
     private String title;

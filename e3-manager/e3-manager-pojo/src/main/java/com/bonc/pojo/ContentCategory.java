@@ -1,10 +1,11 @@
 package com.bonc.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.Data;
 @Data
-public class ContentCategory {
+public class ContentCategory implements Serializable {
     private Long id;
 
     private Long parentId;
