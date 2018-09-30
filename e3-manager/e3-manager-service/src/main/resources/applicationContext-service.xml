@@ -22,7 +22,9 @@ xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
     
     <!-- service implementation, as same as regular local bean -->
     <bean id="itemService" class="com.bonc.service.impl.ItemServiceImpl"/>
+    <bean id="itemCatService" class="com.bonc.service.impl.ItemCatServiceImpl"/>
     <!-- declare the service interface to be exported  tomeout 单位ms -->
     <dubbo:service interface="com.bonc.service.ItemService" ref="itemService"  timeout="600000"/>
+    <dubbo:service interface="com.bonc.service.ItemCatService" ref="itemCatService"  timeout="600000"/>
     
 </beans>

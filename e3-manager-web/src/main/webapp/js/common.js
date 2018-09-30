@@ -105,12 +105,14 @@ var E3 = {
     // 初始化选择类目组件
     initItemCat : function(data){
     	$(".selectItemCat").each(function(i,e){
-    		var _ele = $(e);
+    		// e 是js原生dom  i是下标
+    		var _ele = $(e); // 转换为jQueryDom
     		if(data && data.cid){
     			_ele.after("<span style='margin-left:10px;'>"+data.cid+"</span>");
     		}else{
     			_ele.after("<span style='margin-left:10px;'></span>");
     		}
+    		// 先解除其他绑定，再绑定一次，防止出发多次
     		_ele.unbind('click').click(function(){
     			$("<div>").css({padding:"5px"}).html("<ul>")
     			.window({
