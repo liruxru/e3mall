@@ -103,6 +103,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.bonc.pojo.ContentCategory" >
+ <!--  取出主键，存储到id -->
+  <selectKey  keyProperty="id" resultType="long" order="AFTER">
+  	select last_insert_id()
+  </selectKey>
     insert into tb_content_category (id, parent_id, name, 
       status, sort_order, is_parent, 
       created, updated)
@@ -255,4 +259,8 @@
       updated = #{updated,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  
+<!--  插入内容分类, 返回主键  -->
+
+ 
 </mapper>

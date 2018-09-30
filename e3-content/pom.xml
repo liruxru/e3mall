@@ -5,10 +5,10 @@
     <artifactId>e3-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <artifactId>e3-manager</artifactId>
+  <artifactId>e3-content</artifactId>
   <packaging>pom</packaging>
   
-  <dependencies>
+   <dependencies>
   <dependency>
   
    <groupId>com.bonc</groupId>
@@ -19,23 +19,20 @@
     	
   
   </dependencies>
-  <modules>
-  	<module>e3-manager-pojo</module>
-  	<module>e3-manager-dao</module>
-  	<module>e3-manager-interface</module>
-  	<module>e3-manager-service</module>
-  </modules>
-  
-  
-  <build>
-  <plugins>
+   <modules>
+   	<module>e3-content-interface</module>
+   	<module>e3-content-service</module>
+   </modules>
+   
+   <build>
+    <plugins>
 				<!-- 配置Tomcat插件 -->
 				<plugin>
 					<groupId>org.apache.tomcat.maven</groupId>
     <artifactId>tomcat7-maven-plugin</artifactId>
 					<configuration>
 						<path>/</path>
-						<port>8080</port>
+						<port>8083</port>
 					</configuration>
 				</plugin>
 				

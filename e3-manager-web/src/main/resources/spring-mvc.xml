@@ -21,6 +21,7 @@
     local regular interface -->
     <dubbo:reference id="itemService" check="false" interface="com.bonc.service.ItemService"/>
      <dubbo:reference id="itemCatService" check="false" interface="com.bonc.service.ItemCatService"/>
+     <dubbo:reference id="contentCategoryService" check="false" interface="com.bonc.content.service.ContentCategoryService"/>
     
     <!--  配置资源文件 路径-->
    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
