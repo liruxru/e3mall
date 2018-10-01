@@ -16,13 +16,13 @@
     don't set it same as provider -->
     <dubbo:application name="e3mall-manager-web"/>
     <!-- use multicast registry center to discover service -->
-    <dubbo:registry  protocol="zookeeper" address="192.168.91.132:2181"/>
+    <dubbo:registry  protocol="zookeeper" address="192.168.91.131:2181"/>
     <!-- generate proxy for the remote service, then demoService can be used in the same way as the
     local regular interface -->
     <dubbo:reference id="itemService" check="false" interface="com.bonc.service.ItemService"/>
      <dubbo:reference id="itemCatService" check="false" interface="com.bonc.service.ItemCatService"/>
      <dubbo:reference id="contentCategoryService" check="false" interface="com.bonc.content.service.ContentCategoryService"/>
-    
+     <dubbo:reference id="contentService" check="false" interface="com.bonc.content.service.ContentService"/>
     <!--  配置资源文件 路径-->
    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>
