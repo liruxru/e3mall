@@ -1,0 +1,62 @@
+二 .集群的安装
+1、使用ruby脚本搭建集群。需要ruby的运行环境。
+安装ruby
+yum install ruby
+yum install rubygems
+
+2.安装ruby脚本运行使用的包。 (ruby脚本运行使用的包，把包上传到虚拟机 redis文件夹中redis-3.0.0.gen)
+ gem install redis-3.0.0.gem
+3.修改端口，设置集群为yes
+需要修改redis.conf配置文件。
+修改port  6379  为 7001
+配置文件中还需要把cluster-enabled yes前的注释去掉。
+
+
+4.复制实例
+cp -r redis redis01
+cp -r redis redis02
+cp -r redis redis03
+
+scp -r  redis03 192.168.91.131:/usr/local（不同主机复制实例）
+
+5.启动每个redis实例。
+cd /usr/local/redis01/bin
+./redis-server redis.conf
+6.创建启动脚本
+进入解压的刚开始redis-3.0.0
+cd redis-3.0.0/src
+ ll *.rb
+-rwxrwxr-x. 1 root root 48141 Apr  1  2015 redis-trib.rb
+
+./redis-trib.rb create --replicas 1 192.168.91.131:7001 192.168.91.131:7002 192.168.91.131:7003 192.168.91.132:7001 192.168.91.132:7002 192.168.91.132:7003
+
+7.关闭脚本
+vim shutdow-all.sh
+redis01/bin/redis-cli  -h 192.168.91.132 -p 7001 shutdown
+redis01/bin/redis-cli   -h 192.168.91.132 -p 7002 shutdown
+redis01/bin/redis-cli   -h 192.168.91.132 -p 7003 shutdown
+redis01/bin/redis-cli   -h 192.168.91.131 -p 7001 shutdown
+redis01/bin/redis-cli   -h 192.168.91.131 -p 7002 shutdown
+redis01/bin/redis-cli   -h 192.168.91.131 -p 7003 shutdown
+修改执行权限
+chmod u+x shutdow-all.sh
+启动脚本
+cd /usr/local/redis01/bin
+./redis-server redis.conf
+cd /usr/local/redis02/bin
+./redis-server redis.conf
+cd /usr/local/redis03/bin
+./redis-server redis.conf
+
+
+1)将每个节点下aof、rdb、nodes.conf本地备份文件删除； 
+Cd/redis01/bin/
+2)172.168.63.201:7001> flushdb #清空当前数据库(可省略) 
+3)之后再执行脚本，成功执行；
+启动脚本
+进入解压的刚开始redis-3.0.0
+cd redis-3.0.0/src
+ ll *.rb
+-rwxrwxr-x. 1 root root 48141 Apr  1  2015 redis-trib.rb
+
+./redis-trib.rb create --replicas 1 192.168.91.131:7001 192.168.91.131:7002 192.168.91.131:7003 192.168.91.132:7001 192.168.91.132:7002 192.168.91.132:7003
