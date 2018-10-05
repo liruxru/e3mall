@@ -23,6 +23,9 @@
      <dubbo:reference id="itemCatService" check="false" interface="com.bonc.service.ItemCatService"/>
      <dubbo:reference id="contentCategoryService" check="false" interface="com.bonc.content.service.ContentCategoryService"/>
      <dubbo:reference id="contentService" check="false" interface="com.bonc.content.service.ContentService"/>
+    <dubbo:reference id="searchItemService" check="false" interface="com.bonc.search.service.SearchItemService"/>
+  
+  
     <!--  配置资源文件 路径-->
    <mvc:resources location="/css/" mapping="/css/**"></mvc:resources>
    <mvc:resources location="/js/" mapping="/js/**"></mvc:resources>

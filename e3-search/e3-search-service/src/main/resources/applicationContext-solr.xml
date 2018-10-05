@@ -11,22 +11,8 @@ xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
 	 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
        
-    
-    
-     <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="e3mall-manager-service"/>
-    <!-- 使用zookeeper的注册中心   单机版 -->
-    <dubbo:registry  protocol="zookeeper"   address="192.168.91.131:2181"/>
-    <!-- use dubbo protocol to export service on port 20880  -->
-    <dubbo:protocol name="dubbo" port="20880"/>
-    
-    <!-- service implementation, as same as regular local bean -->
-    <bean id="itemService" class="com.bonc.service.impl.ItemServiceImpl"/>
-    <bean id="itemCatService" class="com.bonc.service.impl.ItemCatServiceImpl"/>
-    
-    
-    <!-- declare the service interface to be exported  tomeout 单位ms -->
-    <dubbo:service interface="com.bonc.service.ItemService" ref="itemService"  timeout="600000"/>
-    <dubbo:service interface="com.bonc.service.ItemCatService" ref="itemCatService"  timeout="600000"/>
-    
+  <bean id="httpSolrServer" class="org.apache.solr.client.solrj.impl.HttpSolrServer">
+		<constructor-arg index="0" value="http://192.168.91.131:8080/solr/collection1"/>
+	</bean>
+
 </beans>

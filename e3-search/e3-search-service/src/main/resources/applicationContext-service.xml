@@ -11,22 +11,20 @@ xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd
 	 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
        
-    
+   <!--  配置包扫描器 -->
+   <context:component-scan base-package="com.bonc.search.service"/>
     
      <!-- provider's application name, used for tracing dependency relationship -->
-    <dubbo:application name="e3mall-manager-service"/>
+    <dubbo:application name="e3mall-search-service"/>
     <!-- 使用zookeeper的注册中心   单机版 -->
     <dubbo:registry  protocol="zookeeper"   address="192.168.91.131:2181"/>
-    <!-- use dubbo protocol to export service on port 20880  -->
-    <dubbo:protocol name="dubbo" port="20880"/>
-    
-    <!-- service implementation, as same as regular local bean -->
-    <bean id="itemService" class="com.bonc.service.impl.ItemServiceImpl"/>
-    <bean id="itemCatService" class="com.bonc.service.impl.ItemCatServiceImpl"/>
+    <!-- use dubbo protocol to export service on port 20881 一个服务配置一个端口  -->
+    <dubbo:protocol name="dubbo" port="20882"/>
     
     
     <!-- declare the service interface to be exported  tomeout 单位ms -->
-    <dubbo:service interface="com.bonc.service.ItemService" ref="itemService"  timeout="600000"/>
-    <dubbo:service interface="com.bonc.service.ItemCatService" ref="itemCatService"  timeout="600000"/>
+    <dubbo:service interface="com.bonc.search.service.SearchItemService" ref="searchItemServiceImpl"  timeout="600000"/>
+    <!--  <dubbo:service interface="com.bonc.content.service.ContentCategoryService" ref="contentCategoryServiceImpl"  timeout="600000"/>
+       <dubbo:service interface="com.bonc.content.service.ContentService" ref="contentServiceImpl"  timeout="600000"/> -->
     
 </beans>

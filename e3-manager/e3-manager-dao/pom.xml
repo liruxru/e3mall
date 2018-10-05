@@ -42,13 +42,13 @@
 
 	<build>
 		<!-- 资源打包配置 https://blog.csdn.net/ITITII/article/details/80212948 -->
-		<resources>
+			<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/*.properties</exclude>
-					<exclude>**/*.xml</exclude>
-				</excludes>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
 				<filtering>false</filtering>
 			</resource>
 			<resource>
