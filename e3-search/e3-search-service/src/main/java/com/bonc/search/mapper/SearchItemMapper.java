@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.bonc.common.pojo.SearchItem;
 
-public interface ItemMapper {
+public interface SearchItemMapper {
 	List<SearchItem> getItemList();
+	SearchItem getItemById(long id);
 }

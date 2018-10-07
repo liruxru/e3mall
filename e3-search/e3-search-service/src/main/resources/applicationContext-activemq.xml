@@ -18,15 +18,12 @@
 		<!-- 目标ConnectionFactory对应真实的可以产生JMS Connection的ConnectionFactory -->
 		<property name="targetConnectionFactory" ref="targetConnectionFactory" />
 	</bean>
+	
 	<!--这个是队列目的地，点对点的 -->
 	<bean id="queueDestination" class="org.apache.activemq.command.ActiveMQQueue">
 		<constructor-arg>
 			<value>spring-queue</value>
 		</constructor-arg>
-	</bean>
-	<!--这个是主题目的地，一对多的 -->
-	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
-		<constructor-arg value="topic" />
 	</bean>
 	<!-- 接收消息 -->
 	<!-- 配置监听器 -->
@@ -36,5 +33,21 @@
 		<property name="connectionFactory" ref="connectionFactory" />
 		<property name="destination" ref="queueDestination" />
 		<property name="messageListener" ref="myMessageListener" />
+	</bean>
+	
+	
+		
+	<!--这个是主题目的地，一对多的  監聽商品添加 -->
+	<bean id="topicDestination" class="org.apache.activemq.command.ActiveMQTopic">
+		<constructor-arg value="item-change-topic" />
+	</bean>
+		<!-- 接收消息 -->
+	<!-- 配置监听器 -->
+	<bean id="itemAddListener" class="com.bonc.search.listener.ItemAddListener" />
+	<!-- 消息监听容器 -->
+	<bean class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+		<property name="connectionFactory" ref="connectionFactory" />
+		<property name="destination" ref="queueDestination" />
+		<property name="messageListener" ref="itemAddListener" />
 	</bean>
 </beans>

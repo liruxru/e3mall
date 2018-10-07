@@ -3,7 +3,16 @@ package com.bonc.service.impl;
 import java.util.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+import javax.jms.TextMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 import org.springframework.stereotype.Service;
 
 import com.bonc.common.pojo.EasyUIDataGridResult;
@@ -24,6 +33,10 @@ public class ItemServiceImpl implements ItemService {
 	private ItemMapper itemMapper;
 	@Autowired
 	private ItemDescMapper itemDescMapper;
+	@Autowired
+	private JmsTemplate jmsTemplate;
+	@Resource
+	private Destination topicDestination;
 
 	@Override
 	public Item getItemById(Long itemId) {
@@ -102,6 +115,18 @@ public class ItemServiceImpl implements ItemService {
 		itemDesc.setUpdated(new Date());
 		itemMapper.insert(item);
 		itemDescMapper.insert(itemDesc);
+		
+		
+		//发送一个商品添加消息
+		jmsTemplate.send(topicDestination, new MessageCreator() {
+			
+			@Override
+			public Message createMessage(Session session) throws JMSException {
+				TextMessage textMessage = session.createTextMessage(item.getId()+ "");
+				return textMessage;
+			}
+		});
+
 		
 		return E3Result.ok();
 	}

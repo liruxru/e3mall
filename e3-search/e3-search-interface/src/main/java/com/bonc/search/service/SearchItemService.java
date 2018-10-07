@@ -6,4 +6,6 @@ public interface SearchItemService {
 
 	E3Result importItmes();
 
+	E3Result addItme(long itemId);
+
 }

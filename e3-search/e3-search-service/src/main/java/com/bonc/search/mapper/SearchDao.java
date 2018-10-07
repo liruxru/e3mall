@@ -14,7 +14,11 @@ import org.springframework.stereotype.Repository;
 
 import com.bonc.common.pojo.SearchItem;
 import com.bonc.common.pojo.SearchResult;
-
+/**
+ * 查询索引库的DAO
+ * @author j
+ *
+ */
 @Repository
 public class SearchDao {
 	
