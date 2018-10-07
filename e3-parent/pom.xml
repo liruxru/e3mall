@@ -15,12 +15,12 @@
 		<dependencies>
 
 			<!-- https://mvnrepository.com/artifact/junit/junit -->
-<dependency>
-    <groupId>junit</groupId>
-    <artifactId>junit</artifactId>
-    <version>4.12</version>
-    <scope>test</scope>
-</dependency>
+			<dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>4.12</version>
+				<scope>test</scope>
+			</dependency>
 
 			<!-- 时间操作组件 -->
 			<dependency>
@@ -52,12 +52,12 @@
 				<version>1.11</version>
 			</dependency>
 			<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-pool2 -->
-<dependency>
-    <groupId>org.apache.commons</groupId>
-    <artifactId>commons-pool2</artifactId>
-    <version>2.6.0</version>
-</dependency>
-			
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-pool2</artifactId>
+				<version>2.6.0</version>
+			</dependency>
+
 			<!-- 日志处理 -->
 			<dependency>
 				<groupId>ch.qos.logback</groupId>
@@ -139,6 +139,7 @@
 				<artifactId>spring-context-support</artifactId>
 				<version>5.0.7.RELEASE</version>
 			</dependency>
+			
 
 
 
@@ -197,7 +198,7 @@
 				<artifactId>mongo-java-driver</artifactId>
 				<version>3.6.3</version>
 			</dependency>
-		
+
 			<!-- https://mvnrepository.com/artifact/redis.clients/jedis -->
 			<dependency>
 				<groupId>redis.clients</groupId>
@@ -205,24 +206,36 @@
 				<version>2.9.0</version>
 			</dependency>
 
-<!-- https://mvnrepository.com/artifact/org.apache.solr/solr-solrj -->
-<dependency>
-    <groupId>org.apache.solr</groupId>
-    <artifactId>solr-solrj</artifactId>
-    <version>4.10.3</version>
-</dependency>
-<!-- httpclient -->
-		<dependency>
-			<groupId>org.apache.httpcomponents</groupId>
-			<artifactId>httpclient</artifactId>
-			<version>4.3.5</version>
-		</dependency>
-		
-		<dependency>
+			<!-- https://mvnrepository.com/artifact/org.apache.solr/solr-solrj -->
+			<dependency>
+				<groupId>org.apache.solr</groupId>
+				<artifactId>solr-solrj</artifactId>
+				<version>4.10.3</version>
+			</dependency>
+			<!-- httpclient -->
+			<dependency>
+				<groupId>org.apache.httpcomponents</groupId>
+				<artifactId>httpclient</artifactId>
+				<version>4.3.5</version>
+			</dependency>
+
+			<dependency>
 				<groupId>org.apache.activemq</groupId>
 				<artifactId>activemq-all</artifactId>
 				<version>5.11.2</version>
 			</dependency>
+				<dependency>
+			<groupId>javax.jms</groupId>
+			<artifactId>javax.jms-api</artifactId>
+			<version>2.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jms -->
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-jms</artifactId>
+				<version>5.0.7.RELEASE</version>
+			</dependency>
+		
 
 
 
