@@ -1,39 +1,25 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<modelVersion>4.0.0</modelVersion>
-	<parent>
-		<groupId>com.bonc</groupId>
-		<artifactId>e3-parent</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
-	<artifactId>e3-manager-web</artifactId>
-	<packaging>war</packaging>
-
-	<dependencies>
-	<dependency>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.bonc</groupId>
+    <artifactId>e3-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>e3-search-web</artifactId>
+  <packaging>war</packaging>
+  
+<dependencies>
+		<dependency>
+			<groupId>com.bonc</groupId>
+			<artifactId>e3-search-interface</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
 			<groupId>com.bonc</groupId>
 			<artifactId>e3-common</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	
-	
-		<dependency>
-			<groupId>com.bonc</groupId>
-			<artifactId>e3-manager-interface</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-		<dependency>
-			<groupId>com.bonc</groupId>
-			 <artifactId>e3-content-interface</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>   
-		<dependency>
-			<groupId>com.bonc</groupId>
-			 <artifactId>e3-search-interface</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>   
-		
 		<!-- 日志处理 -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -65,6 +51,7 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 		</dependency>
+		
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
@@ -96,9 +83,9 @@
 				<artifactId>commons-fileupload</artifactId>
 			</dependency>
 			
+</dependencies>
 
 
-	</dependencies>
 
 	<build>
 		<plugins>
@@ -108,10 +95,30 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/</path>
-					<port>8081</port>
+					<port>8085</port>
 				</configuration>
 			</plugin>
+			
 
 		</plugins>
+			<!-- 资源打包配置 https://blog.csdn.net/ITITII/article/details/80212948 -->
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/*.properties</include>
+					<include>**/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources>
 	</build>
 </project>

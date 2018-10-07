@@ -9,6 +9,11 @@
   <packaging>war</packaging>
   
   <dependencies>
+  <dependency>
+			<groupId>com.bonc</groupId>
+			<artifactId>e3-common</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.bonc</groupId>
 			<artifactId>e3-manager-interface</artifactId>
@@ -95,7 +100,7 @@
 				<artifactId>tomcat7-maven-plugin</artifactId>
 				<configuration>
 					<path>/</path>
-					<port>9000</port>
+					<port>8082</port>
 				</configuration>
 			</plugin>
 
