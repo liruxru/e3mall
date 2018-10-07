@@ -60,6 +60,9 @@
     </mvc:message-converters>
 </mvc:annotation-driven>
 
+<!-- 全局異常處理器 -->
+<bean class="com.bonc.search.exception.GlobalExceptionReslover"></bean>
+
 
 <!-- 定义文件上传解析器 -->
 	<bean id="multipartResolver"
