@@ -1,9 +1,11 @@
 package com.bonc.common.pojo;
 
+import java.io.Serializable;
+
 import lombok.Data;
 
 @Data
-public class SearchItem {
+public class SearchItem implements Serializable{
 	private String id;
 	private String title;
 	private String sell_point;

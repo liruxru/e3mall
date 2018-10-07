@@ -12,7 +12,7 @@ xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	 http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
        
    <!--  配置包扫描器 -->
-   <context:component-scan base-package="com.bonc.search.service"/>
+   <context:component-scan base-package="com.bonc.search"/>
     
      <!-- provider's application name, used for tracing dependency relationship -->
     <dubbo:application name="e3mall-search-service"/>
@@ -24,6 +24,7 @@ xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
     
     <!-- declare the service interface to be exported  tomeout 单位ms -->
     <dubbo:service interface="com.bonc.search.service.SearchItemService" ref="searchItemServiceImpl"  timeout="600000"/>
+    <dubbo:service interface="com.bonc.search.service.SearchService" ref="searchServiceImpl"  timeout="600000"/>
     <!--  <dubbo:service interface="com.bonc.content.service.ContentCategoryService" ref="contentCategoryServiceImpl"  timeout="600000"/>
        <dubbo:service interface="com.bonc.content.service.ContentService" ref="contentServiceImpl"  timeout="600000"/> -->
     
