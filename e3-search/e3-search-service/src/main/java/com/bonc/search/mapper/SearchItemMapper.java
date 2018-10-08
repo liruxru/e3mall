@@ -6,5 +6,5 @@ import com.bonc.common.pojo.SearchItem;
 
 public interface SearchItemMapper {
 	List<SearchItem> getItemList();
-	SearchItem getItemById(long id);
+	SearchItem getItemById(long itemId);
 }

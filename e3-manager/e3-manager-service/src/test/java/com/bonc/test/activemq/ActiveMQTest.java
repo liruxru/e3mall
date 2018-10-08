@@ -119,13 +119,13 @@ public class ActiveMQTest {
 		// 第二個參數,應答模式（自動應答，還是手動應答） 一般是自動應答  
 		Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
 		// 創建Destination對象  topic queue
-		 Topic topic = session.createTopic("test-topic");
+		 Topic topic = session.createTopic("item-change-topic");
 		// 創建Producer
 		MessageProducer producer = session.createProducer(topic);
 		// 創建Message
 //		TextMessage message = new ActiveMQTextMessage();
 //		message.setText("hello activeMq");
-		TextMessage message = session.createTextMessage("hello activeMQ topic");
+		TextMessage message = session.createTextMessage("153890068995413");
 		// 發送消息
 		producer.send(message);
 		// 關閉資源

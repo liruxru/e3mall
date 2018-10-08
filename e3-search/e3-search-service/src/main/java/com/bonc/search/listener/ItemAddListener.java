@@ -21,8 +21,10 @@ public class ItemAddListener  implements MessageListener {
 			TextMessage textMessage = (TextMessage) message;
 			//取消息内容
 			String text = textMessage.getText();
+			System.out.println(text);
 			// 将对应的商品信息同步到索引库
 			long itemId = Long.parseLong(text);
+			System.out.println("\n\n\n\n\n\n\n\n\n哈哈哈哈");
 			searchItemService.addItme(itemId);
 			
 			
